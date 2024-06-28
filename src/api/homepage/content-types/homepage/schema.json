@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "HeroImage": {
+    "hero_image": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -23,8 +23,17 @@
         "audios"
       ]
     },
-    "japanese": {
+    "welcome_text": {
       "type": "string"
+    },
+    "welcome_description": {
+      "type": "string"
+    },
+    "whoweare_english": {
+      "type": "text"
+    },
+    "whoweare_japanese": {
+      "type": "text"
     }
   }
 }
