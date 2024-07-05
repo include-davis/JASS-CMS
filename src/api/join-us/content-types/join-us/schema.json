@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "meet_uses",
+  "collectionName": "join_uses",
   "info": {
-    "singularName": "meet-us",
-    "pluralName": "meet-uses",
-    "displayName": "MeetUs",
+    "singularName": "join-us",
+    "pluralName": "join-uses",
+    "displayName": "JoinUs",
     "description": ""
   },
   "options": {
@@ -23,11 +23,11 @@
         "audios"
       ]
     },
-    "description": {
-      "type": "string"
-    },
     "header": {
       "type": "string"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

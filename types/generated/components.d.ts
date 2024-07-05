@@ -14,6 +14,30 @@ export interface CabinetCabinetBio extends Schema.Component {
   };
 }
 
+export interface CabinetJoinCabinet extends Schema.Component {
+  collectionName: 'components_cabinet_join_cabinets';
+  info: {
+    displayName: 'join-cabinet';
+    icon: 'briefcase';
+    description: '';
+  };
+  attributes: {
+    position_title: Attribute.String;
+    description: Attribute.Component<'cabinet.position-description', true>;
+  };
+}
+
+export interface CabinetPositionDescription extends Schema.Component {
+  collectionName: 'components_cabinet_position_descriptions';
+  info: {
+    displayName: 'position_description';
+    description: '';
+  };
+  attributes: {
+    bullet: Attribute.Text;
+  };
+}
+
 export interface EventCarouselEvent extends Schema.Component {
   collectionName: 'components_event_carousel_events';
   info: {
@@ -32,6 +56,8 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'cabinet.cabinet-bio': CabinetCabinetBio;
+      'cabinet.join-cabinet': CabinetJoinCabinet;
+      'cabinet.position-description': CabinetPositionDescription;
       'event-carousel.event': EventCarouselEvent;
     }
   }

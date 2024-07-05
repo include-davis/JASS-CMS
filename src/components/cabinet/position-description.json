@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_cabinet_position_descriptions",
+  "info": {
+    "displayName": "position_description",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "bullet": {
+      "type": "text"
+    }
+  }
+}

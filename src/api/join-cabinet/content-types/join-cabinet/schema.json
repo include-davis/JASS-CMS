@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "cabinets",
+  "collectionName": "join_cabinets",
   "info": {
-    "singularName": "cabinet",
-    "pluralName": "cabinets",
-    "displayName": "Meet_Cabinet",
-    "description": ""
+    "singularName": "join-cabinet",
+    "pluralName": "join-cabinets",
+    "displayName": "Join_Cabinet"
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +14,7 @@
     "roles": {
       "type": "component",
       "repeatable": true,
-      "component": "cabinet.cabinet-bio"
+      "component": "cabinet.join-cabinet"
     }
   }
 }

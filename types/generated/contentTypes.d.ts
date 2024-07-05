@@ -793,7 +793,7 @@ export interface ApiCabinetCabinet extends Schema.CollectionType {
   info: {
     singularName: 'cabinet';
     pluralName: 'cabinets';
-    displayName: 'Cabinet';
+    displayName: 'Meet_Cabinet';
     description: '';
   };
   options: {
@@ -884,18 +884,82 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   };
 }
 
+export interface ApiJoinCabinetJoinCabinet extends Schema.CollectionType {
+  collectionName: 'join_cabinets';
+  info: {
+    singularName: 'join-cabinet';
+    pluralName: 'join-cabinets';
+    displayName: 'Join_Cabinet';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    roles: Attribute.Component<'cabinet.join-cabinet', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::join-cabinet.join-cabinet',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::join-cabinet.join-cabinet',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiJoinUsJoinUs extends Schema.SingleType {
+  collectionName: 'join_uses';
+  info: {
+    singularName: 'join-us';
+    pluralName: 'join-uses';
+    displayName: 'JoinUs';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    hero_image: Attribute.Media;
+    header: Attribute.String;
+    description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::join-us.join-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::join-us.join-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMeetUsMeetUs extends Schema.SingleType {
   collectionName: 'meet_uses';
   info: {
     singularName: 'meet-us';
     pluralName: 'meet-uses';
     displayName: 'MeetUs';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    cabinet_pic: Attribute.Media;
+    hero_image: Attribute.Media;
     description: Attribute.String;
     header: Attribute.String;
     createdAt: Attribute.DateTime;
@@ -937,6 +1001,8 @@ declare module '@strapi/types' {
       'api::cabinet.cabinet': ApiCabinetCabinet;
       'api::event-slider.event-slider': ApiEventSliderEventSlider;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::join-cabinet.join-cabinet': ApiJoinCabinetJoinCabinet;
+      'api::join-us.join-us': ApiJoinUsJoinUs;
       'api::meet-us.meet-us': ApiMeetUsMeetUs;
     }
   }
