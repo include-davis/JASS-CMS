@@ -788,6 +788,37 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCabinetCabinet extends Schema.CollectionType {
+  collectionName: 'cabinets';
+  info: {
+    singularName: 'cabinet';
+    pluralName: 'cabinets';
+    displayName: 'Cabinet';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    roles: Attribute.Component<'cabinet.cabinet-bio', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cabinet.cabinet',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cabinet.cabinet',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEventSliderEventSlider extends Schema.CollectionType {
   collectionName: 'event_sliders';
   info: {
@@ -853,6 +884,38 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   };
 }
 
+export interface ApiMeetUsMeetUs extends Schema.SingleType {
+  collectionName: 'meet_uses';
+  info: {
+    singularName: 'meet-us';
+    pluralName: 'meet-uses';
+    displayName: 'MeetUs';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cabinet_pic: Attribute.Media;
+    description: Attribute.String;
+    header: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::meet-us.meet-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::meet-us.meet-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -871,8 +934,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::cabinet.cabinet': ApiCabinetCabinet;
       'api::event-slider.event-slider': ApiEventSliderEventSlider;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::meet-us.meet-us': ApiMeetUsMeetUs;
     }
   }
 }
