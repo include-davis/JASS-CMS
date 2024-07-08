@@ -23,7 +23,7 @@ export interface CabinetJoinCabinet extends Schema.Component {
   };
   attributes: {
     position_title: Attribute.String;
-    description: Attribute.Component<'cabinet.position-description', true>;
+    description: Attribute.Text;
   };
 }
 

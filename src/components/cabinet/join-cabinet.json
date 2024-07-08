@@ -11,10 +11,7 @@
       "type": "string"
     },
     "description": {
-      "displayName": "position_description",
-      "type": "component",
-      "repeatable": true,
-      "component": "cabinet.position-description"
+      "type": "text"
     }
   }
 }
