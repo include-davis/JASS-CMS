@@ -849,6 +849,41 @@ export interface ApiEventSliderEventSlider extends Schema.CollectionType {
   };
 }
 
+export interface ApiFooterFooter extends Schema.SingleType {
+  collectionName: 'footers';
+  info: {
+    singularName: 'footer';
+    pluralName: 'footers';
+    displayName: 'Footer';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    discord_link: Attribute.Text;
+    facebook_link: Attribute.Text;
+    instagram_link: Attribute.Text;
+    gphotos_link: Attribute.Text;
+    youtube_link: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomepageHomepage extends Schema.SingleType {
   collectionName: 'homepages';
   info: {
@@ -1001,6 +1036,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::cabinet.cabinet': ApiCabinetCabinet;
       'api::event-slider.event-slider': ApiEventSliderEventSlider;
+      'api::footer.footer': ApiFooterFooter;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::join-cabinet.join-cabinet': ApiJoinCabinetJoinCabinet;
       'api::join-us.join-us': ApiJoinUsJoinUs;
