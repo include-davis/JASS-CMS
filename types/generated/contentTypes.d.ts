@@ -866,6 +866,7 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     welcome_description: Attribute.String;
     whoweare_english: Attribute.Text;
     whoweare_japanese: Attribute.Text;
+    constitution_link: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
