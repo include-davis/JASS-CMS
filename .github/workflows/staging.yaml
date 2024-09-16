@@ -1,4 +1,4 @@
-name: Staging Deployment
+name: Build check
 
 on:
   push:
@@ -6,13 +6,11 @@ on:
       - 'main'
 
 jobs:
-  deploy_staging:
-    name: Deploy Staging
+  build:
+    name: Build and Test
     runs-on: ubuntu-latest
     environment:
-      name: staging
-      url: ${{ vars.ENV_URL }}
-
+      name: development
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,23 +23,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Lint and build code, then publish to Vercel
-        run: >
-          vercel
-          --token ${{ secrets.VERCEL_TOKEN }}
-          -n ${{ vars.VERCEL_PROJECT }}
-          --yes
-          --prod
-          --env MONGO_CONNECTION_STRING=${{ secrets.MONGO_CONNECTION_STRING }}
-          --env CLOUDINARY_NAME=${{ secrets.CLOUDINARY_NAME }}
-          --env CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }}
-          --env CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }}
-          --env JWT_SECRET=${{ secrets.JWT_SECRET }}
-          --build-env MONGO_CONNECTION_STRING=${{ secrets.MONGO_CONNECTION_STRING }}
-          --build-env CLOUDINARY_NAME=${{ secrets.CLOUDINARY_NAME }}
-          --build-env CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }}
-          --build-env CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }}
-          --build-env JWT_SECRET=${{ secrets.JWT_SECRET }}
+      - name: Build Next.js app
+        env:
+          MONGO_CONNECTION_STRING: ${{ secrets.MONGO_CONNECTION_STRING }}
+        run: npm run build
 
       - name: Success
-        run: echo "🛠️ Deploy successful 🛠️"
+        run: echo "🚧 Build successful 🚧"
