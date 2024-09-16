@@ -24,28 +24,22 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build application
-        run: npm run build
-        env:
-          MONGO_CONNECTION_STRING: ${{ secrets.MONGO_CONNECTION_STRING }}
-          CLOUDINARY_NAME: ${{ secrets.CLOUDINARY_NAME }}
-          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
-          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      - name: Install Vercel CLI
+        run: npm install -g vercel@37.3.0
 
       - name: Publish to Vercel
         run: >
-          vercel deploy
+          vercel
           --token ${{ secrets.VERCEL_TOKEN }}
           -n ${{ vars.VERCEL_PROJECT }}
           --yes
           --prod
-          --prebuilt
           --env MONGO_CONNECTION_STRING=${{ secrets.MONGO_CONNECTION_STRING }}
           --env CLOUDINARY_NAME=${{ secrets.CLOUDINARY_NAME }}
           --env CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }}
           --env CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }}
           --env JWT_SECRET=${{ secrets.JWT_SECRET }}
+          --build-env MONGO_CONNECTION_STRING=${{ secrets.MONGO_CONNECTION_STRING }}
 
       - name: Success
         run: echo "🚀  Deploy successful 🚀 "
