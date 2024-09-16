@@ -1,15 +1,16 @@
-name: Production Deployment
+name: Staging Deployment
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - 'main'
 
 jobs:
   deploy_staging:
-    name: Deploy Production
+    name: Deploy Staging
     runs-on: ubuntu-latest
     environment:
-      name: production
+      name: staging
       url: ${{ vars.ENV_URL }}
 
     steps:
@@ -43,4 +44,4 @@ jobs:
           --build-env JWT_SECRET=${{ secrets.JWT_SECRET }}
 
       - name: Success
-        run: echo "🚀  Deploy successful 🚀 "
+        run: echo "🛠️ Deploy successful 🛠️"
