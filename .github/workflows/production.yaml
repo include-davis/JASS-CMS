@@ -26,6 +26,8 @@ jobs:
 
       - name: Prebuild
         run: npm run build
+        env:
+          MONGO_CONNECTION_STRING: ${{ secrets.MONGO_CONNECTION_STRING }}
 
       - name: Publish to Vercel
         working-directory: ./runtime-environment
