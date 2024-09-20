@@ -36,7 +36,7 @@ home
   .createField({
     name: 'constitution_link',
     displayName: 'Constitution Link',
-    type: FieldType.MEDIA_LIST,
+    type: FieldType.SHORT_TEXT,
     required: true,
   });
 
