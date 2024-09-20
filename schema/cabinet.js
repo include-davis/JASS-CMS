@@ -1,7 +1,7 @@
 const { ContentType, FieldType } = require('@include/hearth');
 
 const board = new ContentType({
-  name: 'cabinet_member',
+  name: 'cabinet-member',
   singularDisplayName: 'Cabinet Member',
   pluralDisplayName: 'Cabinet Members',
 });

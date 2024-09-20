@@ -1,7 +1,7 @@
 const { ContentType, FieldType } = require('@include/hearth');
 
 const cabinetPositions = new ContentType({
-  name: 'cabinet_position',
+  name: 'cabinet-position',
   singularDisplayName: 'Cabinet Position',
   pluralDisplayName: 'Cabinet Positions',
 });

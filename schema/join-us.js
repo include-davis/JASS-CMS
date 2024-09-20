@@ -1,7 +1,7 @@
 const { ContentType, FieldType } = require('@include/hearth');
 
 const joinUs = new ContentType({
-  name: 'join_us',
+  name: 'join-us',
   singularDisplayName: 'Join Us',
 });
 
