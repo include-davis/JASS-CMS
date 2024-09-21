@@ -18,6 +18,11 @@ board
     displayName: 'Name',
     type: FieldType.SHORT_TEXT,
     required: true,
+  })
+  .createField({
+    name: 'display_order',
+    displayName: 'Display Order (1-12)',
+    type: FieldType.SHORT_TEXT,
   });
 
 module.exports = board;
