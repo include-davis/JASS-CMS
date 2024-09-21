@@ -18,11 +18,6 @@ cabinetPositions
     displayName: 'Description',
     type: FieldType.LONG_TEXT,
     required: true,
-  })
-  .createField({
-    name: 'position_amount',
-    displayName: 'Amount',
-    type: FieldType.SHORT_TEXT,
   });
 
 module.exports = cabinetPositions;
