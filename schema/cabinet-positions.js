@@ -18,6 +18,11 @@ cabinetPositions
     displayName: 'Description',
     type: FieldType.LONG_TEXT,
     required: true,
+  })
+  .createField({
+    name: 'display_order',
+    displayName: 'Display Order (1-12)',
+    type: FieldType.SHORT_TEXT,
   });
 
 module.exports = cabinetPositions;
