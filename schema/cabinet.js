@@ -23,6 +23,7 @@ board
     name: 'display_order',
     displayName: 'Display Order',
     type: FieldType.SHORT_TEXT,
+    required: true,
   });
 
 module.exports = board;

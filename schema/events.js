@@ -24,6 +24,12 @@ events
     displayName: 'Description',
     type: FieldType.LONG_TEXT,
     required: true,
+  })
+  .createField({
+    name: 'display_order',
+    displayName: 'Display Order',
+    type: FieldType.SHORT_TEXT,
+    required: true,
   });
 
 module.exports = events;
