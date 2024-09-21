@@ -1,6 +1,6 @@
 const callbacks = {
   onUpdate: async () => {
-    console.log('hello there!');
+    await fetch(`${process.env.REVALIDATE_URL}`);
   },
 };
 
