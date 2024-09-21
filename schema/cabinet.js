@@ -21,7 +21,7 @@ board
   })
   .createField({
     name: 'display_order',
-    displayName: 'Display Order (1-12)',
+    displayName: 'Display Order',
     type: FieldType.SHORT_TEXT,
   });
 

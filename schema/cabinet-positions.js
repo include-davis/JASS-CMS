@@ -21,7 +21,7 @@ cabinetPositions
   })
   .createField({
     name: 'display_order',
-    displayName: 'Display Order (1-8)',
+    displayName: 'Display Order',
     type: FieldType.SHORT_TEXT,
   });
 

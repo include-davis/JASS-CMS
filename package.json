@@ -10,7 +10,7 @@
         "migrate:down": "migrate-mongo down"
     },
     "dependencies": {
-        "@include/hearth": "git@github.com:include-davis/Include-CMS.git#v1.0.5",
+        "@include/hearth": "git@github.com:include-davis/Include-CMS.git#v1.0.8",
         "eslint": "^8",
         "eslint-plugin-prettier": "^5.0.1"
     }
